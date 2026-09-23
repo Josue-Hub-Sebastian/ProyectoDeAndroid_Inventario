@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "366754871984",
+    "project_id": "tomainventario-4c3e5",
+    "storage_bucket": "tomainventario-4c3e5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:366754871984:android:4e46ce943b9c4af61b5975",
+        "android_client_info": {
+          "package_name": "pe.com.dms.inventariosoft"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "366754871984-ieed6psigt8h7aqrqbpcm211hbcrdtl0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDiLotrghHX1eKVbKtWfZAWY0M-Fn1CCe8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "366754871984-ieed6psigt8h7aqrqbpcm211hbcrdtl0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

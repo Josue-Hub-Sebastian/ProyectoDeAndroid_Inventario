@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/back"
+    android:orientation="vertical"
+    android:padding="@dimen/margin_large">
+
+
+    <androidx.legacy.widget.Space
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="2" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:src="@drawable/andronium" />
+
+    <androidx.legacy.widget.Space
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="2" />
+
+    <EditText
+        android:id="@+id/et_code"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bt_white_round"
+        android:gravity="center"
+        android:hint="Código de licenciamiento"
+        android:maxLength="8"
+        android:maxLines="1"
+        android:padding="@dimen/margin_small"
+        android:singleLine="true"
+        android:textColor="@android:color/white"
+        android:textColorHint="#c1c1c1" />
+
+    <androidx.legacy.widget.Space
+        android:layout_width="0dp"
+        android:layout_height="@dimen/margin_default" />
+
+    <EditText
+        android:id="@+id/et_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bt_white_round"
+        android:gravity="center"
+        android:hint="Nombre de equipo"
+        android:maxLength="20"
+        android:maxLines="1"
+        android:padding="@dimen/margin_small"
+        android:singleLine="true"
+        android:textColor="@android:color/white"
+        android:textColorHint="#c1c1c1" />
+
+    <androidx.legacy.widget.Space
+        android:layout_width="0dp"
+        android:layout_height="@dimen/margin_default" />
+
+    <Button
+        android:id="@+id/bt_submit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rcf_primary_solid"
+        android:gravity="center"
+        android:padding="@dimen/margin_default"
+        android:text="Licenciar"
+        android:textColor="@android:color/white" />
+
+
+    <androidx.legacy.widget.Space
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="2" />
+
+</LinearLayout>

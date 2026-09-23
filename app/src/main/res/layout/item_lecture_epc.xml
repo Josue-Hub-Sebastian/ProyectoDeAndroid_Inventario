@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/holder"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#ffffff"
+    android:padding="@dimen/margin_default">
+
+    <TextView
+        android:id="@+id/tv_descripcion"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/margin_default"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/text_body"
+        app:layout_constraintEnd_toStartOf="@+id/tv_cantidad"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="BW HUG NAT REFRESH REF 3X184" />
+
+    <TextView
+        android:id="@+id/tv_codigo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/margin_default"
+        android:textSize="@dimen/text_caption"
+        app:layout_constraintEnd_toStartOf="@+id/tv_cantidad"
+        app:layout_constraintStart_toStartOf="@id/tv_descripcion"
+        app:layout_constraintTop_toBottomOf="@id/tv_descripcion"
+        tools:text="32847329587234" />
+    <TextView
+        android:id="@+id/tv_cantidad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/text_subheading"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="44" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/holder"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+
+    <com.google.android.material.card.MaterialCardView
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:cardCornerRadius="20dp"
+        android:layout_margin="@dimen/margin_default"
+        app:cardElevation="10dp"
+        android:backgroundTint="@color/windowBackground"
+
+
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+
+            >
+
+            <TextView
+                android:id="@+id/tv_descripcion"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin_default"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/text_subheading"
+                android:textStyle="bold"
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/tv_codigo"
+                android:textAlignment="center"
+                tools:text="BW HUG NAT REFRESH REF 3X184" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/tv_codigo"
+                style="@style/Widget.Material3.Chip.Assist.Elevated"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
+                app:chipBackgroundColor="#D7B189"
+                app:chipMinHeight="24dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_descripcion"
+                app:layout_constraintWidth_percent="0.7"
+                tools:text="Codigo: 32847329587234"
+                android:clickable="false"
+                android:focusable="false"
+                app:ensureMinTouchTargetSize="false"
+                android:layout_marginTop="@dimen/margin_default"
+
+                />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/tv_ubicacion"
+                style="@style/Widget.Material3.Chip.Assist.Elevated"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
+                app:chipBackgroundColor="#D7B189"
+                app:chipMinHeight="24dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_codigo"
+                app:layout_constraintWidth_percent="0.7"
+                android:layout_marginTop="@dimen/margin_default"
+                android:clickable="false"
+                android:focusable="false"
+                app:ensureMinTouchTargetSize="false"
+                tools:text="Ubicacion: A01" />
+
+
+            <TextView
+                android:id="@+id/tv_cantidad"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/text_display1"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tv_codigo"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="44" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/btn_delete"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:src="@drawable/ic_delete"
+                app:layout_constraintEnd_toEndOf="parent"
+
+                app:tint="@color/red" />
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

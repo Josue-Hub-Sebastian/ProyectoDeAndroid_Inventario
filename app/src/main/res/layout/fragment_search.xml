@@ -1,0 +1,527 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorSecondaryDark">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_loading"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:elevation="10dp"
+            android:visibility="gone"
+            tools:visibility="visible">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#99000000" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <LinearLayout
+                    android:layout_width="290dp"
+                    android:layout_height="60dp"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+
+                    <ProgressBar
+                        android:layout_width="25dp"
+                        android:layout_height="25dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:text="Activando RFID... Espere un momento." />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_view"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/camera_preview_height"
+            android:layout_margin="16dp"
+            android:visibility="gone"
+            app:cardCornerRadius="20dp"
+            app:layout_constraintTop_toTopOf="parent"
+
+            tools:visibility="visible">
+
+            <androidx.camera.view.PreviewView
+                android:id="@+id/viewFinder"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+
+                />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_gravity="center"
+                android:background="#80FF0000" />
+
+            <View
+                android:id="@+id/viewScannerFrame"
+                android:layout_width="200dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:background="@drawable/scanner_frame" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_config"
+            style="@style/AppTheme.Card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_default"
+            app:layout_constraintTop_toBottomOf="@+id/card_view">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_poder"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:hint="Poder"
+                app:layout_constraintEnd_toStartOf="@+id/bt_savePoder"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:text="0" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/bt_savePoder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Guardar"
+                app:layout_constraintBottom_toBottomOf="@+id/til_poder"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/til_poder" />
+
+            <Button
+                android:id="@+id/bt_scan"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Escanear"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/til_poder" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <LinearLayout
+            android:id="@+id/ly_conteo"
+            style="@style/AppTheme.Card"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_default"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toStartOf="@+id/linearLayout3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cl_config">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Conteo"
+                android:textSize="@dimen/text_subheading"
+
+                />
+
+            <TextView
+                android:id="@+id/tv_conteo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_display1"
+                android:textStyle="bold"
+                tools:text="1" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout3"
+            style="@style/AppTheme.Card"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_default"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/ly_conteo"
+            app:layout_constraintTop_toBottomOf="@+id/cl_config">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_lectura"
+                android:textSize="@dimen/text_subheading"
+                />
+
+            <TextView
+                android:id="@+id/tv_lectura"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_display1"
+                android:textStyle="bold"
+                tools:text="15" />
+        </LinearLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/container_sws"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/ly_conteo">
+
+            <com.google.android.material.materialswitch.MaterialSwitch
+                android:id="@+id/sc_modo_conteo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lectura continua"
+                android:textColor="@color/textColorPrimary"
+                android:textSize="@dimen/text_body"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.materialswitch.MaterialSwitch
+                android:id="@+id/sw_lote"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Incluir Lote"
+                android:textColor="@color/textColorPrimary"
+                android:textSize="@dimen/text_body"
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ScrollView
+            android:id="@+id/main_scroll_view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            android:fillViewport="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/container_sws">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_form"
+                style="@style/AppTheme.TopRoundedCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/margin_default">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/til_ubicacion"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/texfield_height"
+                    android:layout_marginTop="@dimen/margin_default"
+                    android:layout_marginEnd="@dimen/margin_xsmall"
+                    android:hint="Ubicación"
+                    app:endIconDrawable="@drawable/ic_unlock"
+                    app:endIconMode="custom"
+                    app:layout_constraintEnd_toStartOf="@+id/bt_scan_ubicacion"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/tEdit_Ubicacion"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:imeOptions="actionNext"
+                        android:nextFocusDown="@id/tEdit_producto"
+                        android:inputType="text"
+                        android:textSize="@dimen/text_subheading"
+                        android:singleLine="true" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/bt_scan_ubicacion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/rc_primary"
+                    android:padding="@dimen/margin_xsmall"
+                    android:src="@drawable/ic_camera"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="@id/til_ubicacion"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/til_ubicacion"
+                    app:tint="@android:color/white" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/til_producto"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/texfield_height"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="@dimen/margin_xsmall"
+                    android:hint="Producto"
+                    app:endIconMode="clear_text"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/til_ubicacion">
+
+
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/tEdit_producto"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:imeOptions="actionNext"
+                        android:textSize="@dimen/text_subheading"
+                        android:nextFocusDown="@id/tEdit_lote"
+
+                        android:inputType="text"
+                        android:singleLine="true" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+<!--                <androidx.appcompat.widget.AppCompatImageView-->
+<!--                    android:id="@+id/bt_scan_producto"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:background="@drawable/rc_primary"-->
+<!--                    android:padding="@dimen/margin_xsmall"-->
+<!--                    android:src="@drawable/ic_camera"-->
+<!--                    android:visibility="gone"-->
+<!--                    app:layout_constraintBottom_toBottomOf="@id/til_producto"-->
+<!--                    app:layout_constraintEnd_toEndOf="parent"-->
+<!--                    app:layout_constraintTop_toTopOf="@id/til_producto"-->
+<!--                    app:tint="@android:color/white" />-->
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/til_descripcion"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:hint="Descripción"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/til_producto">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/tEdit_descripcion"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:focusable="false"
+                        android:longClickable="false"
+                        android:cursorVisible="false"
+                        android:textColor="@color/textColorPrimaryInverse"
+                        android:textSize="@dimen/text_subheading" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/til_lote"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/texfield_height"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="@dimen/margin_xsmall"
+                    android:hint="Lote"
+                    app:layout_constraintEnd_toStartOf="@id/bt_scan_lote"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/til_descripcion">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/tEdit_lote"
+                        android:nextFocusDown="@id/tEdit_serie"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:imeOptions="actionNext"
+                        android:inputType="text"
+                        android:singleLine="true" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/bt_scan_lote"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/rc_primary"
+                    android:padding="@dimen/margin_xsmall"
+                    android:src="@drawable/ic_camera"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="@id/til_lote"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/til_lote"
+                    app:tint="@android:color/white" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/til_serie"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/texfield_height"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="@dimen/margin_xsmall"
+                    android:hint="Serie"
+                    app:layout_constraintEnd_toStartOf="@id/bt_scan_serie"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/til_lote">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/tEdit_serie"
+                        android:nextFocusDown="@id/tEdit_cantidad"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:imeOptions="actionNext"
+                        android:textSize="@dimen/text_subheading"
+                        android:inputType="text"
+                        android:singleLine="true" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/bt_scan_serie"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/rc_primary"
+                    android:padding="@dimen/margin_xsmall"
+                    android:src="@drawable/ic_camera"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="@id/til_serie"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/til_serie"
+                    app:tint="@android:color/white" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/til_cantidad"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/texfield_height"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="4dp"
+                    android:hint="Cantidad"
+                    app:helperText=" "
+                    app:helperTextEnabled="true"
+                    app:layout_constraintEnd_toStartOf="@+id/til_um"
+                    app:layout_constraintHorizontal_weight="2"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/til_serie">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/tEdit_cantidad"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:cursorVisible="true"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        android:imeOptions="actionDone"
+                        android:inputType="none"
+                        android:nextFocusDown="@id/bt_send"
+                        android:singleLine="true"
+                        android:textSize="@dimen/text_subheading" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/til_um"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/texfield_height"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="4dp"
+                    android:hint="UM"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_weight="1"
+                    app:layout_constraintStart_toEndOf="@+id/til_cantidad"
+                    app:layout_constraintTop_toBottomOf="@+id/til_serie">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/tEdit_um"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:cursorVisible="false"
+                        android:focusable="false"
+                        android:longClickable="false"
+                        android:singleLine="true"
+                        android:textColor="@color/textColorPrimaryInverse"
+                        android:textSize="@dimen/text_subheading" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/bt_send"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginBottom="16dp"
+                    android:backgroundTint="@color/colorSecondaryDark"
+                    android:text="Enviar"
+                    android:textColor="@color/textColorPrimary"
+                    android:textSize="@dimen/text_headline"
+                    android:textStyle="bold"
+                    app:cornerRadius="20dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:textAllCaps="true"
+                    app:layout_constraintTop_toBottomOf="@+id/til_cantidad" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:id="@+id/bottom_sheet"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:elevation="@dimen/margin_default"
+        android:orientation="vertical"
+        app:behavior_hideable="false"
+        android:visibility="gone"
+        app:behavior_peekHeight="@dimen/bottom_sheet_height"
+        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/bottom_sheet_height"
+            android:background="@color/colorPrimaryDark">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Últimas lecturas"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/text_subheading"
+                android:textStyle="bold" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_expandable"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|end"
+                android:layout_marginEnd="@dimen/margin_default"
+                android:src="@drawable/ic_expand_less"
+                app:tint="@android:color/white" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/fl_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

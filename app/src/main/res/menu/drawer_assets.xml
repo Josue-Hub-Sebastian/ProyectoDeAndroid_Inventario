@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+
+    <group android:checkableBehavior="single">
+        <item android:title="Inventario">
+            <menu>
+                <item
+                    android:id="@+id/nav_search"
+                    android:icon="@drawable/ic_menu_search"
+                    android:title="Lectura" />
+                <item
+                    android:id="@+id/nav_stats"
+                    android:icon="@drawable/ic_menu_stats"
+                    android:title="Resumen" />
+            </menu>
+        </item>
+    </group>
+
+
+    <group>
+        <item android:title="Sincronizar">
+            <menu>
+                <item
+                    android:id="@+id/nav_sync_upload"
+                    android:icon="@drawable/ic_cloud_upload"
+                    android:title="Cargar al Servidor" />
+                <item
+                    android:id="@+id/nav_sync_inventory"
+                    android:icon="@drawable/ic_cloud_download"
+                    android:title="Inventarios" />
+                <item
+                    android:id="@+id/nav_sync_assets"
+                    android:icon="@drawable/ic_cloud_download"
+                    android:title="Activos" />
+            </menu>
+        </item>
+    </group>
+
+
+    <group>
+        <item
+            android:id="@+id/nav_settings"
+            android:icon="@drawable/ic_setting_outline"
+            android:title="Configuración" />
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@drawable/ic_out"
+            android:title="Cerrar Sesión" />
+    </group>
+
+</menu>

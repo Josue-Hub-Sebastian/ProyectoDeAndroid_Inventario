@@ -1,0 +1,186 @@
+<resources>
+    <string name="app_name">Toma de Inventario</string>
+
+    <string-array name="modo_conteo">
+        <item>Manual</item>
+        <item>Barrido</item>
+    </string-array>
+
+    <string-array name="yesno">
+        <item>Si</item>
+        <item>No</item>
+    </string-array>
+
+
+    <string-array name="graphics_offline">
+        <item>Ubicación</item>
+    </string-array>
+
+    <string-array name="graphics_online">
+        <item>Ubicación</item>
+        <item>Producto</item>
+    </string-array>
+
+    <string-array name="query">
+        <item>Ubicación</item>
+        <item>Producto</item>
+        <item>Lote</item>
+    </string-array>
+
+    <string name="app_cargando">Cargando. Por favor espere…</string>
+
+    <string name="search_criteria_code">Código</string>
+    <string name="search_criteria_serie">Serie</string>
+    <string name="search_criteria_prev_code">Código Anterior</string>
+
+    <string-array name="search_criteria">
+        <item>@string/search_criteria_code</item>
+        <item>@string/search_criteria_serie</item>
+        <item>@string/search_criteria_prev_code</item>
+    </string-array>
+
+
+    <string-array name="company">
+        <item>Agraria</item>
+        <item>Essalud</item>
+    </string-array>
+
+
+    <string-array name="inventory">
+        <item>-- Seleccione --</item>
+        <item>Inventario 1</item>
+        <item>Inventario 2</item>
+    </string-array>
+
+
+    <string-array name="inventory_group">
+        <item>-- Seleccione --</item>
+        <item>Grupo 1</item>
+        <item>Grupo 2</item>
+        <item>Grupo 3</item>
+    </string-array>
+
+
+    <string-array name="status">
+        <item>Bueno</item>
+        <item>Malo</item>
+        <item>Nuevo</item>
+        <item>Regular</item>
+    </string-array>
+
+    <string-array name="color">
+        <item>Acrílico</item>
+        <item>Rojo</item>
+        <item>Crema</item>
+        <item>Blanco</item>
+    </string-array>
+
+    <string-array name="condition">
+        <item>Asinado</item>
+        <item>Baja</item>
+        <item>Disposición</item>
+        <item>Eliminado</item>
+    </string-array>
+
+    <string-array name="lecture_type">
+        <item>Código de Barras</item>
+        <item>RFID</item>
+    </string-array>
+
+    <string-array name="codification">
+        <item>Interno</item>
+        <item>Público</item>
+    </string-array>
+
+    <string-array name="invetory_type">
+        <item>Normal</item>
+        <item>Ciego</item>
+    </string-array>
+
+    <string-array name="location_type">
+        <item>Por bien</item>
+        <item>Por ubicación</item>
+        <item>Por ubicación y responsable</item>
+    </string-array>
+
+    <string-array name="extra_screens">
+        <item>Ninguno</item>
+        <item>Animal</item>
+        <item>Vehículo</item>
+        <item>Todos</item>
+    </string-array>
+
+    <string-array name="dummy">
+        <item>actisoft</item>
+        <item>almacensoft</item>
+        <item>vehisoft</item>
+        <item>tareosoft</item>
+    </string-array>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="action_rifd">Configuración RFID</string>
+    <string name="action_delete">Eliminar todo</string>
+    <string name="menu_title_summary">Resumen</string>
+    <string name="menu_title_configuration">Configuración</string>
+    <string name="dialog_logout_title">Cerrar Sesión</string>
+    <string name="dialog_logout_message">¿Está seguro que desea cerrar sesión?</string>
+    <string name="label_yes">Si</string>
+    <string name="label_print">Imprimir</string>
+    <string name="label_no">No</string>
+    <string name="label_ok">Ok</string>
+
+    <!--Tab Labels-->
+    <string name="tab_label_inventory">Inventario</string>
+    <string name="tab_label_general">General</string>
+    <string name="tab_label_print">Impresión</string>
+    <string name="tab_label_goods">Bienes</string>
+    <string name="tab_label_animal">Animal</string>
+    <string name="tab_label_vehicle">Vehículo</string>
+
+
+    <string name="dialog_error">Error</string>
+    <string name="label_alert">Alerta</string>
+    <string name="discard_changes">¿Desea desartar los datos ingresados?</string>
+    <string name="validation_empty">El campo no puede estar vacío</string>
+    <string name="label_sync_assets">Mantenimiento\nde Bienes</string>
+    <string name="label_sync_inventory">Toma de\nInventario</string>
+    <string name="label_sync_message">Para empezar a utilizar el aplicativo debes seleccionar el modo de trabajo</string>
+    <string name="label_sync_title">Bienvenido</string>
+    <string name="assets_label_reviewed">Revisado</string>
+    <string name="search_validation_12_lenght">El código debe ser mayor o igual a 12 caracteres</string>
+    <string name="message_no_bluetooth_1">No se puede imprimir</string>
+    <string name="message_no_bluetooth_2">Este dispositivo no cuenta con Bluetooth</string>
+    <string name="label_conteo">Conteo</string>
+    <string name="label_lectura">Lecturas</string>
+    <string name="sinInternet">No hay conexión a internet, asegúrese de contar con una y vuelva a intentarlo.</string>
+
+
+    <string name="title_advice_inventory">Recomendaciones para el Inventario</string>
+
+    <string name="subtitle_advice_inventory_1">● Mantén tu dispositivo en un lugar seguro</string>
+    <string name="content_advice_inventory_1">Si no lo estás utilizando, colócalo en un sitio estable para evitar caídas o pérdidas.</string>
+
+    <string name="subtitle_advice_inventory_2">● Cuenta antes de registrar</string>
+    <string name="content_advice_inventory_2">Verifica visualmente la cantidad antes de enviar tu registro.</string>
+
+    <string name="subtitle_advice_inventory_3">● Evita distracciones</string>
+    <string name="content_advice_inventory_3">Un error en el conteo puede afectar todo el inventario.</string>
+
+    <string name="subtitle_advice_inventory_4">● Verifica ubicación y producto</string>
+    <string name="content_advice_inventory_4">Antes de guardar, confirma que estás registrando en la ubicación correcta.</string>
+
+    <string name="subtitle_advice_inventory_5">● Solo puedes eliminar los últimos 5 registros</string>
+    <string name="content_advice_inventory_5">Si te equivocas, corrige inmediatamente antes de superar ese límite.</string>
+
+    <string name="subtitle_advice_inventory_6">● No compartas tu sesión</string>
+    <string name="content_advice_inventory_6">Cada operador es responsable de sus registros.</string>
+
+    <string name="subtitle_advice_inventory_7">● Mantén la batería cargada</string>
+    <string name="content_advice_inventory_7">Evita interrupciones durante el conteo.</string>
+
+    <string name="footer_advice_inventory">¡Que tengas un excelente inventario!</string>
+
+</resources>

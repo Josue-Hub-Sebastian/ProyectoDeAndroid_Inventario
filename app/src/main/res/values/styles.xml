@@ -1,0 +1,120 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.Material3.Light.NoActionBar">
+
+    <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="colorSecondary">@color/colorPrimary</item>
+        <item name="colorSecondaryContainer">@color/colorPrimaryDark</item>
+        <item name="colorOnSecondaryContainer">@android:color/white</item>
+
+        <item name="android:windowBackground">@color/windowBackground</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.Button.Colored" parent="Widget.AppCompat.Button.Colored">
+        <item name="android:textSize">@dimen/text_body</item>
+        <item name="backgroundTint">?attr/colorPrimary</item>
+    </style>
+
+    <style name="AppTheme.Button.Borderless" parent="Widget.AppCompat.Button.Borderless.Colored">
+        <item name="android:textSize">@dimen/text_body</item>
+        <item name="android:textColor">?attr/colorPrimary</item>
+    </style>
+
+    <style name="AppTheme.Dialog" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="AppTheme.Dialog.Error">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">#d50000</item>
+        <item name="colorPrimaryDark">#9b0000</item>
+        <item name="colorAccent">#ff5131</item>
+    </style>
+
+    <style name="AppTheme.Dialog.Warning">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">#ff9100</item>
+        <item name="colorPrimaryDark">#c56200</item>
+        <item name="colorAccent">#ffc246</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="SplashTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowBackground">@drawable/splash_screen</item>
+    </style>
+
+    <style name="AppTheme.Card">
+        <item name="android:background">@drawable/rc_white_solid</item>
+        <item name="android:elevation">2dp</item>
+        <item name="android:padding">@dimen/margin_small</item>
+
+    </style>
+
+
+    <style name="AppTheme.TopRoundedCard">
+        <item name="android:background">@drawable/rc_white_solid_new_version</item>
+        <item name="android:elevation">2dp</item>
+        <item name="android:padding">@dimen/margin_default</item>
+
+    </style>
+
+    <style name="Shape.TopRoundedCard" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopLeft">25dp</item>
+        <item name="cornerSizeTopRight">25dp</item>
+        <item name="cornerSizeBottomLeft">0dp</item>
+        <item name="cornerSizeBottomRight">0dp</item>
+    </style>
+
+
+    <style name="BotonTecladoBase">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">46dp</item>
+        <item name="android:layout_columnWeight">1</item>
+        <item name="android:layout_margin">1dp</item>
+        <item name="android:textSize">18sp</item>
+        <!-- CLAVE: que el botón NO robe el foco del EditText -->
+        <item name="android:focusable">false</item>
+        <item name="android:focusableInTouchMode">false</item>
+    </style>
+
+    <style name="BotonTecladoNumero" parent="BotonTecladoBase">
+        <item name="android:backgroundTint">#F0F0F0</item>
+        <item name="android:textColor">#212121</item>
+    </style>
+
+    <style name="BotonTecladoOperador" parent="BotonTecladoBase">
+        <item name="android:backgroundTint">#014B8C</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+
+    <style name="BotonTecladoAccion" parent="BotonTecladoBase">
+        <item name="android:backgroundTint">#9E9E9E</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+
+    <style name="BotonTecladoIgual" parent="BotonTecladoBase">
+        <item name="android:layout_height">46dp</item>
+        <item name="android:backgroundTint">#4CAF50</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+</resources>
+

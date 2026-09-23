@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/img_login_background_v2"
+    android:fitsSystemWindows="true"
+    tools:context=".features.login.LoginActivity">
+
+
+    <LinearLayout
+        android:id="@+id/layout_login"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_large"
+        android:layout_marginTop="@dimen/neg_margin_large"
+        android:layout_marginEnd="@dimen/margin_large"
+        android:background="@drawable/rc_white_solid"
+        android:elevation="@dimen/margin_default"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="@dimen/margin_default"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:src="@drawable/im_logo"
+
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:text="“Simplificamos tu inventario, maximizamos tu tiempo”"
+            android:textSize="@dimen/elevation_large"
+            android:textColor="@color/textColorPrimaryInverse"
+            android:textStyle="bold"
+            >
+
+        </TextView>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+
+            />
+
+
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="¡Hola, de nuevo!"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="@dimen/text_display1"
+            android:textStyle="bold" />
+
+
+
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="@dimen/margin_default" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:text="Configura enlace web"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="@dimen/text_caption"
+            android:textStyle="bold"
+
+
+            android:visibility="invisible" />
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_config"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:minHeight="0dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:text="Vincular dispositivo"
+            android:textAllCaps="false"
+            android:textSize="@dimen/text_caption"
+            app:backgroundTint="@color/turquoise"
+            app:cornerRadius="50dp"
+            app:icon="@drawable/ic_pantalla_pc"
+            app:iconGravity="textEnd" />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="@dimen/margin_default"
+            />
+
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_user"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:startIconDrawable="@drawable/ic_person"
+            style="?attr/textInputOutlinedStyle"
+            android:hint="Usuario"
+
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+
+
+                android:textSize="@dimen/text_body" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="@dimen/margin_default" />
+
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="@color/colorPrimaryDark"
+            android:hint="Contraseña"
+            style="?attr/textInputOutlinedStyle"
+            app:startIconDrawable="@drawable/ic_lock"
+
+
+
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:singleLine="true"
+                android:textSize="@dimen/text_body" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/margin_large" />
+
+
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/bt_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:cornerRadius="20dp"
+            android:text="INGRESAR"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:textSize="@dimen/text_title"
+            android:backgroundTint="@color/colorSecondaryDark"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/til_password"       >
+        </com.google.android.material.button.MaterialButton>
+
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/sc_Modo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_default"
+            android:text="MODO BATCH"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/text_caption"
+            android:textStyle="bold"
+            android:visibility="gone" />
+
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="@dimen/margin_default" />
+
+
+    </LinearLayout>
+
+    <!-- BOTÓN LOGIN -->
+
+
+    <!-- VERSION -->
+    <TextView
+        android:id="@+id/tv_version_apk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/margin_default"
+        android:text="v1.0.0"
+        android:textSize="11sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bt_login" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
