@@ -216,9 +216,18 @@ class LecturePresenter extends BasePresenter<LectureContract.View>
         if (UtilMethods.isEmpty(lectura.getCodigoUbicacion())) message += "\n- Debe ingresar la ubicación";
         if (dataSourceRepository.findUbicacionByCode(lectura.getCodigoUbicacion()) == null) message += "\n- La ubicación ingresada no existe";
         if (UtilMethods.isEmpty(lectura.getCodigoProducto())) message += "\n- Debe ingresar el código de producto";
-        if (!configActual.isRegistrar() && dataSourceRepository.findProductoByCode(lectura.getCodigoProducto()) == null) message += "\n- El producto ingresado no existe";
-        //checkpoint
-        //if(!configActual.isRegistrar() && dataSourceRepository.findProductoByDesc(lectura.getDescProducto()) == null) message += "\n- El Producto ingresado no existe, verifica los caracteres";
+        if (!configActual.isRegistrar()) {
+            String codigoProd = lectura.getCodigoProducto();
+            Producto prod = dataSourceRepository.findProductoByCode(codigoProd);
+            if (prod == null) {
+                prod = dataSourceRepository.findProductoByDesc(codigoProd);
+            }
+            if (prod == null) {
+                message += "\n- El producto ingresado no existe";
+            } else {
+                lectura.setCodigoProducto(prod.getCodigo());
+            }
+        }
         if (configActual.isLote() && UtilMethods.isEmpty(lectura.getLote())) message += "\n- Debe ingresar el lote";
         if (configActual.isSerie() && UtilMethods.isEmpty(lectura.getSerie())) message += "\n- Debe ingresar la serie";
 
