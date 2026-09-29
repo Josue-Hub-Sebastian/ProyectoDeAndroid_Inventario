@@ -100,6 +100,7 @@ import pe.com.dms.inventariosoft.utils.TecladoCalculadoraHelper;
 import pe.com.dms.inventariosoft.utils.Constants;
 import pe.com.dms.inventariosoft.utils.UtilMethods;
 import pe.com.dms.inventariosoft.utils.dialogs.CustomDialog;
+import pe.com.dms.inventariosoft.utils.dialogs.ModalKeyGuard;
 import pe.com.dms.inventariosoft.utils.interfaces.TextWatcher;
 import pe.com.dms.inventariosoft.utils.scanner.CodeCaptureActivity;
 import timber.log.Timber;
@@ -247,22 +248,18 @@ public class LectureFragment extends BaseFragment implements LectureContract.Vie
                 Log.e(TAG, "mScanReceiver SCANNER_STRING barcode: " + barcode);
             }
 
-            if (TextUtils.isEmpty(barcode)) {
-                barcode = intent.getStringExtra(Constants.SCANNER_STRING_HONEY);
-                Log.e(TAG, "mScanReceiver SCANNER_STRING_HONEY barcode: " + barcode);
+            if (TextUtils.isEmpty(barcode)) return;
+
+            // Si ningún campo tiene el foco, determinar a cuál darle el foco automáticamente
+            if (!tilUbicacion.hasFocus() && !tilProducto.hasFocus() &&
+                !tilLote.hasFocus() && !tilSerie.hasFocus() && !tilCantidad.hasFocus()) {
+                if (TextUtils.isEmpty(tilUbicacion.getEditText().getText().toString().trim())) {
+                    tilUbicacion.requestFocus();
+                } else {
+                    tilProducto.requestFocus();
+                }
             }
-            if (TextUtils.isEmpty(barcode)) {
-                barcode = intent.getStringExtra(Constants.SCANNER_STRING_ZEBRA);
-                Log.e(TAG, "mScanReceiver Zebra barcode: " + barcode);
-            }
-            /*Log.d(TAG, "mScanReceiver intent: " + intent);
-            String barcode = intent.getStringExtra(Constants.SCANNER_STRING);
-            Log.d(TAG, "mScanReceiver barcode SCANNER_STRING: " + barcode);
-            if (TextUtils.isEmpty(barcode))
-                barcode = intent.getStringExtra(Constants.SCANNER_ACTION);
-            Log.d(TAG, "mScanReceiver barcode SCANNER_ACTION: " + barcode);*/
-            //scanned = true;
-            //Log.d(TAG, "mScanReceiver scanned: " + scanned);
+
             if (tilUbicacion.hasFocus() && tilUbicacion.isEnabled()) {
                 Log.d(TAG, "mScanReceiver tilUbicacion: " + barcode.trim());
                 tilUbicacion.getEditText().setText("");
@@ -275,15 +272,19 @@ public class LectureFragment extends BaseFragment implements LectureContract.Vie
                 presenter.searchProducto(barcode.trim());
                 if (tilLote.getVisibility() == View.VISIBLE) {
                     tilLote.requestFocus();
+                    tilProducto.clearFocus();
                 } else if (tilSerie.getVisibility() == View.VISIBLE) {
                     tilSerie.requestFocus();
+                    tilProducto.clearFocus();
                 } else {
-                    if (presenter.isBarrido())
+                    if (presenter.isBarrido()) {
                         submit();
-                    else
+                        tilProducto.requestFocus();
+                    } else {
                         tilCantidad.requestFocus();
+                        tilProducto.clearFocus();
+                    }
                 }
-                tilProducto.clearFocus();
             } else if (tilLote.hasFocus() && tilLote.getVisibility() == View.VISIBLE) {
                 Log.d(TAG, "mScanReceiver tilLote: " + barcode.trim());
                 tilLote.getEditText().setText("");
@@ -291,7 +292,12 @@ public class LectureFragment extends BaseFragment implements LectureContract.Vie
                 if (tilSerie.getVisibility() == View.VISIBLE) {
                     tilSerie.requestFocus();
                 } else {
-                    tilCantidad.requestFocus();
+                    if (presenter.isBarrido()) {
+                        submit();
+                        tilProducto.requestFocus();
+                    } else {
+                        tilCantidad.requestFocus();
+                    }
                 }
                 tilLote.clearFocus();
             } else if (tilSerie.hasFocus() && tilSerie.getVisibility() == View.VISIBLE) {
@@ -301,8 +307,10 @@ public class LectureFragment extends BaseFragment implements LectureContract.Vie
                 if (presenter.isBarrido()) {
                     Log.d(TAG, "isbarrido ");
                     submit();
-                } else
+                    tilProducto.requestFocus();
+                } else {
                     tilCantidad.requestFocus();
+                }
                 tilSerie.clearFocus();
             } else if (tilCantidad.hasFocus()) {
                 Log.d(TAG, "mScanReceiver tilCantidad: " + barcode.trim());
@@ -1268,12 +1276,14 @@ public class LectureFragment extends BaseFragment implements LectureContract.Vie
     @Override
     public void showErrorDialog(String message) {
         btSend.setEnabled(true);
-        new CustomDialog.Builder(getContext())
+        CustomDialog dialog = new CustomDialog.Builder(getContext())
                 .setMessage(message)
                 .setIcon(R.drawable.ic_close)
                 .setTheme(R.style.AppTheme_Dialog_Error)
                 .setPositiveButtonLabel(getString(R.string.label_ok))
-                .build().show();
+                .build();
+        ModalKeyGuard.attach(dialog).setOnDismissListener(dialogInterface -> presenter.verifarFoco());
+        dialog.show();
     }
 
     @Override
@@ -1296,7 +1306,7 @@ public class LectureFragment extends BaseFragment implements LectureContract.Vie
     @Override
     public void showValidationError(String message) {
         btSend.setEnabled(true);
-        new CustomDialog.Builder(getContext())
+        CustomDialog dialog = new CustomDialog.Builder(getContext())
                 .setMessage(message)
                 .setTheme(R.style.AppTheme_Dialog_Warning)
                 .setIcon(R.drawable.ic_alert)
@@ -1310,7 +1320,9 @@ public class LectureFragment extends BaseFragment implements LectureContract.Vie
                         tilCantidad.getEditText().getText().clear();
                     }
                 })
-                .build().show();
+                .build();
+        ModalKeyGuard.attach(dialog).setOnDismissListener(dialogInterface -> presenter.verifarFoco());
+        dialog.show();
     }
 
     @Override
@@ -1423,6 +1435,7 @@ public class LectureFragment extends BaseFragment implements LectureContract.Vie
                     presenter.requestNextInventario() ;
                 })
                 .build();
+        ModalKeyGuard.attach(dialogError);
         if (!dialogError.isShowing()) {
             dialogError.show();
         }

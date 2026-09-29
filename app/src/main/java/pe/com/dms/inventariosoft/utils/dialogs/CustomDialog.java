@@ -177,7 +177,6 @@ public class CustomDialog extends Dialog {
         private int theme = R.style.AppTheme_Dialog;
         private int icon = -1;
         private Boolean isBtPositiveUnique = true;
-        private boolean useKeyGuard = true;
 
         public Builder(Context context) {
             this.context = context;
@@ -198,9 +197,6 @@ public class CustomDialog extends Dialog {
             dialog.mAdapter = adapter;
             dialog.mIcon = icon;
             dialog.mIsBtPositiveUnique = isBtPositiveUnique;
-            if (useKeyGuard) {
-                ModalKeyGuard.attach(dialog);
-            }
             return dialog;
         }
 
@@ -265,11 +261,6 @@ public class CustomDialog extends Dialog {
 
         public Builder setAdapter(RecyclerView.Adapter adapter) {
             this.adapter = adapter;
-            return this;
-        }
-
-        public Builder setUseKeyGuard(boolean useKeyGuard) {
-            this.useKeyGuard = useKeyGuard;
             return this;
         }
     }
